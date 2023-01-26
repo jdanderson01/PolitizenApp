@@ -1,13 +1,19 @@
-import { StyleSheet, View, Image, Button } from "react-native";
+import { StyleSheet, SafeAreaView, Image, Button } from "react-native";
 
 export default function Splash(props) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require("/Users/dharma/Documents/GitHub/PolitizenApp/PolitizenMobile/assets/politizen-logo.png")}
+        source={require(".././assets/politizen-logo.png")}
       />
-    </View>
+      <Button
+        title="Login"
+        onPress={() => {
+          props.navigation.navigate("Login");
+        }}
+      />
+    </SafeAreaView>
   );
 }
 
