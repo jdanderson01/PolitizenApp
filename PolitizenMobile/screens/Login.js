@@ -27,9 +27,7 @@ export default function Login(props) {
           style={styles.tinyLogo}
           source={require(".././assets/politizen-logo.png")}
         />
-        <Text h2 style={{ textAlign: "left" }}>
-          Sign In
-        </Text>
+        <Text>Sign In</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter email"
@@ -47,7 +45,7 @@ export default function Login(props) {
           style={styles.button}
           title="Submit"
           onPress={() => {
-            checkAuth();
+            props.navigation.navigate("TabNavigator");
           }}
         >
           <Text style={styles.pText}>Sign in</Text>
