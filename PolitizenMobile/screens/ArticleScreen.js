@@ -5,7 +5,7 @@ export default function ArticleScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollVIew}>
-        <Text>Yerrrr</Text>
+        <Text>Article</Text>
       </ScrollView>
     </SafeAreaView>
   );

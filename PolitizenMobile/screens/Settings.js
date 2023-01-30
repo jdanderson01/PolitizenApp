@@ -1,11 +1,11 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, ScrollView, Text } from "react-native";
 
-export default function BillScreen() {
+export default function SettingsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollVIew}>
-        <Text>Bill</Text>
+        <Text>Settings</Text>
       </ScrollView>
     </SafeAreaView>
   );

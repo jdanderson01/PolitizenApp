@@ -1,10 +1,12 @@
+//import react packages
 import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "react-native-vector-icons";
 
-//screens
+//import screens
 import Splash from "./screens/Splash";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
@@ -20,22 +22,69 @@ const user = {
   email: "",
 };
 
+//initialize navigation variables
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+//bottom tab navigator for the main screens
 function TabNavigator() {
   return (
-    <Tab.Navigator initialRouteName="HomeScreen">
-      <Tab.Screen name="HomeScreen" component={HomeScreen} />
-      <Tab.Screen name="Bill" component={BillScreen} />
-      <Tab.Screen name="Candidate" component={CandidateScreen} />
-      <Tab.Screen name="Article" component={ArticleScreen} />
+    <Tab.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "#d5d5d5",
+        },
+      }}
+    >
+      <Tab.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <Ionicons
+              name="home"
+              size={size}
+              color={focused ? "#62787f" : "black"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Bill"
+        component={BillScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name="newspaper-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Candidate"
+        component={CandidateScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name="person-circle-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Article"
+        component={ArticleScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name="reader-outline" size={size} color={color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
   return (
+    //stack navigator for the login & registration screens
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
