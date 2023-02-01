@@ -71,13 +71,13 @@ const styles = StyleSheet.create({
   image: {
     height: 95,
     width: 95,
-    marginTop: 60,
+    marginTop: 15,
   },
 
   image2: {
     height: 95,
     width: 95,
-    marginTop: 60,
+    marginTop: 50,
   },
 
   greyRectangleOne: {
@@ -85,16 +85,16 @@ const styles = StyleSheet.create({
     height: 95,
     alignSelf: "center",
     alignContent: "center",
-    marginTop: 60,
+    marginTop: 15,
     backgroundColor: "#cccccc",
   },
 
   greyRectangleTwo: {
     width: 250,
     height: 95,
+    marginTop: 50,
     alignSelf: "center",
     alignContent: "center",
-    marginTop: 60,
     backgroundColor: "#cccccc",
   },
 
@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
 
   homeImg: {
     marginTop: 30,
-    height: 250,
-    width: 250,
+    height: 356,
+    width: 353,
     alignSelf: "center",
   },
 

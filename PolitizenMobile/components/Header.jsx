@@ -8,8 +8,10 @@ export default function TopNav() {
     <Header
       containerStyle={{
         backgroundColor: "#d5d5d5",
+        height: 100,
+        maxWidth: 430,
       }}
-      leftComponent={<Ionicons name="wallet-outline" size={24} color="black" />}
+      leftComponent={<Ionicons name="wallet-outline" size={30} color="black" />}
       centerComponent={
         <Image
           style={styles.headLogo}
@@ -17,7 +19,7 @@ export default function TopNav() {
         />
       }
       rightComponent={
-        <Ionicons name="person-outline" size={24} color="black" />
+        <Ionicons name="person-outline" size={30} color="black" />
       }
     />
   );
