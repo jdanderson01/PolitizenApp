@@ -36,7 +36,7 @@ export default function HomeScreen() {
         <View style={styles.articleContainer}>
           <Image
             source={require("../assets/voters-abortion.jpeg")}
-            style={styles.image}
+            style={styles.image2}
           />
           <TouchableOpacity style={styles.greyRectangleTwo}>
             <Text style={styles.rectText}>
@@ -69,26 +69,32 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    height: 70,
-    width: 70,
-    marginTop: 20,
+    height: 95,
+    width: 95,
+    marginTop: 60,
+  },
+
+  image2: {
+    height: 95,
+    width: 95,
+    marginTop: 60,
   },
 
   greyRectangleOne: {
-    width: 209,
-    height: 75,
+    width: 250,
+    height: 95,
     alignSelf: "center",
     alignContent: "center",
-    marginTop: 20,
+    marginTop: 60,
     backgroundColor: "#cccccc",
   },
 
   greyRectangleTwo: {
-    width: 209,
-    height: 75,
+    width: 250,
+    height: 95,
     alignSelf: "center",
     alignContent: "center",
-    marginTop: 20,
+    marginTop: 60,
     backgroundColor: "#cccccc",
   },
 
@@ -98,9 +104,10 @@ const styles = StyleSheet.create({
   },
 
   homeImg: {
-    marginTop: 50,
+    marginTop: 30,
     height: 250,
     width: 250,
+    alignSelf: "center",
   },
 
   pText: {

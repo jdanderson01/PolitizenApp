@@ -1,6 +1,6 @@
 //import react packages
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,8 +17,17 @@ import HomeScreen from "./screens/HomeScreen";
 import BillScreen from "./screens/BillScreen";
 import ArticleScreen from "./screens/ArticleScreen";
 import CandidateScreen from "./screens/CandidateScreen";
+<<<<<<< HEAD
 import LocalScreen from "./screens/LocalScreen";
 import StateScreen from "./screens/StateScreen";
+=======
+import DemsWinNV from "./screens/articles/DemsWinNV";
+import HobbsBeatsLake from "./screens/articles/HobbsBeatsLake";
+import VotersKeepAbortion from "./screens/articles/VotersKeepAbortion";
+import WalkerSpeech from "./screens/articles/WalkerSpeech";
+import DeSantis2024 from "./screens/articles/DeSantis2024";
+import TrumpTaxReturns from "./screens/articles/TrumpTaxReturns";
+>>>>>>> db28a4546d2e9416ed679e09019047eb652fe8af
 
 const user = {
   email: "",
@@ -85,6 +94,8 @@ function TabNavigator() {
 }
 
 export default function App() {
+  const [fontsLoaded, setFonts] = useState(false);
+
   return (
     //stack navigator for the login & registration screens
     <NavigationContainer>
@@ -108,6 +119,15 @@ export default function App() {
         />
         <Stack.Screen name="Code" component={Code} initialParams={user} />
         <Stack.Screen name="TabNavigator" component={TabNavigator} />
+        <Stack.Screen name="DemsWinNV" component={DemsWinNV} />
+        <Stack.Screen name="HobbsBeatsLake" component={HobbsBeatsLake} />
+        <Stack.Screen
+          name="VotersKeepAbortion"
+          component={VotersKeepAbortion}
+        />
+        <Stack.Screen name="WalkerSpeech" component={WalkerSpeech} />
+        <Stack.Screen name="DeSantis2024" component={DeSantis2024} />
+        <Stack.Screen name="TrumpTaxReturns" component={TrumpTaxReturns} />
       </Stack.Navigator>
     </NavigationContainer>
   );
