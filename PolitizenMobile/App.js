@@ -17,6 +17,8 @@ import HomeScreen from "./screens/HomeScreen";
 import BillScreen from "./screens/BillScreen";
 import ArticleScreen from "./screens/ArticleScreen";
 import CandidateScreen from "./screens/CandidateScreen";
+import LocalScreen from "./screens/LocalScreen";
+import StateScreen from "./screens/StateScreen";
 
 const user = {
   email: "",

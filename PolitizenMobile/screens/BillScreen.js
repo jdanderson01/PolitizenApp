@@ -1,12 +1,21 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, Text } from "react-native";
+import { SafeAreaView, StyleSheet, ScrollView, Text, Button } from "react-native";
 
-export default function BillScreen() {
+export default function BillScreen(props) {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollVIew}>
-        <Text>Bill</Text>
-      </ScrollView>
+      <Button
+        title="Local Legislation"
+        onPress={() => {
+          props.navigation.navigate("Local");
+        }}
+      />
+      <Button
+        title="State Legislation"
+        onPress={() => {
+          props.navigation.navigate("State");
+        }}
+      />
     </SafeAreaView>
   );
 }
