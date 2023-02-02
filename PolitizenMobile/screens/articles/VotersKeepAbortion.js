@@ -12,7 +12,7 @@ export default function VotersKeepAbortion() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollVIew}>
+      <ScrollView style={styles.scrollView}>
         <Image
           style={styles.homeImg}
           source={require("../../assets/voters-abortion.jpeg")}

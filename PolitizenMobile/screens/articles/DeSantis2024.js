@@ -1,11 +1,26 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, Text } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  Text,
+  Image,
+} from "react-native";
+import TopNav from "../../components/Header";
 
 export default function DeSantis2024() {
   return (
     <SafeAreaView style={styles.container}>
+      <TopNav />
       <ScrollView style={styles.scrollVIew}>
-        <Text>Desantis 2024 Plans</Text>
+        <Image
+          style={styles.homeImg}
+          source={require("../../assets/voters-abortion.jpeg")}
+        />
+        <Text style={styles.title}>DeSantis' 2024 Plans</Text>
+        <Text style={styles.articleText} t>
+          The Democratic Party looks to be poised for
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -21,5 +36,26 @@ const styles = StyleSheet.create({
 
   scrollView: {
     width: "100%",
+  },
+
+  homeImg: {
+    marginTop: 30,
+    height: 356,
+    width: 353,
+    alignSelf: "center",
+  },
+
+  title: {
+    marginTop: 20,
+    fontSize: 35,
+    alignSelf: "center",
+    color: "#13131A",
+  },
+
+  articleText: {
+    padding: 5,
+    margin: 5,
+    fontSize: 15,
+    color: "#13131A",
   },
 });

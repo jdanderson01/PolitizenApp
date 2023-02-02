@@ -11,7 +11,14 @@ export default function TopNav() {
         height: 100,
         maxWidth: 430,
       }}
-      leftComponent={<Ionicons name="wallet-outline" size={30} color="black" />}
+      leftComponent={
+        <Ionicons
+          style={styles.icon}
+          name="wallet-outline"
+          size={30}
+          color="black"
+        />
+      }
       centerComponent={
         <Image
           style={styles.headLogo}
@@ -19,7 +26,12 @@ export default function TopNav() {
         />
       }
       rightComponent={
-        <Ionicons name="person-outline" size={30} color="black" />
+        <Ionicons
+          style={styles.icon}
+          name="person-outline"
+          size={30}
+          color="black"
+        />
       }
     />
   );
@@ -32,8 +44,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-  person: {
-    marginTop: 34,
+  headLogo: {
+    height: 150,
+    width: 150,
+    marginBottom: 40,
+  },
+
+  icon: {
     color: "black",
+    marginTop: 60,
   },
 });

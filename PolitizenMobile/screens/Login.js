@@ -15,10 +15,10 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
 
   function checkAuth(email, password) {
-    if (email == "tomato@gmail.com" && password == "potato") {
+    if (email == "UCF" && password == "Student") {
       props.navigation.navigate("TabNavigator");
     } else {
-      console.log("wrong email or password")
+      console.log("wrong email or password");
     }
   }
 
@@ -47,8 +47,7 @@ export default function Login(props) {
           style={styles.button}
           title="Submit"
           onPress={() => {
-            checkAuth(email, password)
-            
+            checkAuth(email, password);
           }}
         >
           <Text style={styles.pText}>Sign in</Text>

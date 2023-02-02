@@ -89,8 +89,6 @@ function TabNavigator() {
 }
 
 export default function App() {
-  const [fontsLoaded, setFonts] = useState(false);
-
   return (
     //stack navigator for the login & registration screens
     <NavigationContainer>

@@ -9,8 +9,14 @@ import {
   View,
 } from "react-native";
 import TopNav from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
+  const handlePress = (component) => {
+    navigation.navigate(component);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
@@ -25,7 +31,10 @@ export default function HomeScreen() {
             source={require("../assets/katie-hobbs-wins-az.jpeg")}
             style={styles.image}
           />
-          <TouchableOpacity style={styles.greyRectangleOne}>
+          <TouchableOpacity
+            style={styles.greyRectangleOne}
+            onPress={() => handlePress("HobbsBeatsLake")}
+          >
             <Text style={styles.rectText}>
               Katie Hobbs wins the Arizona governor seat for Democrats, a
               much-needed win in a historically Republican state. Doubts about
