@@ -14,9 +14,11 @@ export default function Login(props) {
   const [email, setEmail] = useState(props.route.params.email);
   const [password, setPassword] = useState("");
 
-  function checkAuth() {
+  function checkAuth(email, password) {
     if (email == "tomato@gmail.com" && password == "potato") {
-      props.navigation.replace("Splash");
+      props.navigation.navigate("TabNavigator");
+    } else {
+      console.log("wrong email or password")
     }
   }
 
@@ -45,7 +47,8 @@ export default function Login(props) {
           style={styles.button}
           title="Submit"
           onPress={() => {
-            props.navigation.navigate("TabNavigator");
+            checkAuth(email, password)
+            
           }}
         >
           <Text style={styles.pText}>Sign in</Text>
