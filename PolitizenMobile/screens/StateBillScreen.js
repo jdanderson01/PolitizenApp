@@ -14,43 +14,43 @@ import { useNavigation } from "@react-navigation/native";
 const articleData = [
   {
     key: 1,
-    image: require("../assets/candidates/CharlieCrist.jpg"),
-    title: "Charlie Crist",
-    component: "CharlieCrist",
+    image: require("../assets/arizona-flag.png"),
+    title: "SB-1035",
+    component: "SB1035",
   },
   {
     key: 2,
-    image: require("../assets/candidates/HerschelWalker.jpg"),
-    title: "Herschel Walker",
-    component: "HerschelWalker",
+    image: require("../assets/arizona-flag.png"),
+    title: "SB-1046",
+    component: "SB1046",
   },
   {
     key: 3,
-    image: require("../assets/candidates/KatieHobbs.jpeg"),
-    title: "Katie Hobbs",
-    component: "KatieHobbs",
+    image: require("../assets/arizona-flag.png"),
+    title: "SB-1347",
+    component: "SB1347",
   },
   {
     key: 4,
-    image: require("../assets/candidates/RaphaelWarnock.jpg"),
-    title: "Raphael Warnock",
-    component: "RaphaelWarnock",
+    image: require("../assets/arizona-flag.png"),
+    title: "SB1339",
+    component: "SB1339",
   },
   {
     key: 5,
-    image: require("../assets/candidates/RonaldDeSantis.jpg"),
-    title: "Ronald DeSantis",
-    component: "RonDeSantis",
+    image: require("../assets/arizona-flag.png"),
+    title: "SB-1511",
+    component: "SB1411",
   },
   {
     key: 6,
-    image: require("../assets/candidates/KariLake.jpg"),
-    title: "Kari Lake",
-    component: "KariLake",
+    image: require("../assets/arizona-flag.png"),
+    title: "SB-1042",
+    component: "SB1042",
   },
 ];
 
-export default function CandidateScreen() {
+export default function StateBillScreen() {
   const navigation = useNavigation();
   const handlePress = (component) => {
     navigation.navigate(component);
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 
   image: {
     height: 140,
-    width: 140,
+    width: 150,
     margin: 20,
   },
 

@@ -6,15 +6,26 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function BillScreen() {
+  const navigation = useNavigation();
+  const handlePress = (component) => {
+    navigation.navigate(component);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollVIew}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handlePress("LocalBillScreen")}
+        >
           <Text style={styles.buttonText}>Local Legislation</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonTwo}>
+        <TouchableOpacity
+          style={styles.buttonTwo}
+          onPress={() => handlePress("StateBillScreen")}
+        >
           <Text style={styles.buttonText}>State Legislation</Text>
         </TouchableOpacity>
       </ScrollView>

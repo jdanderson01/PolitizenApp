@@ -8,22 +8,23 @@ import {
 } from "react-native";
 import TopNav from "../../components/Header";
 
-export default function TrumpTaxReturns() {
+export default function SB1347() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/trump-tax-returns.jpeg")}
+          source={require("../../assets/arizona-flag.png")}
         />
-        <Text style={styles.title}>Trump's Tax Returns</Text>
-        <Text style={styles.articleText} t>
-          Former President Trump's Tax Returns, documents that have long been
-          shrouded in mystery and speculation, have finally been revealed to the
-          public. Many auditors and experts have questions in regards to Trump's
-          reporting of his finances, speculating that losses may have been
-          exaggerated to lower his tax burden or to dodge it entirely.
+        <Text style={styles.title}>SB-1347</Text>
+        <Text style={styles.articleText}>
+          Introduced in 2022 by Senator Wendy Rogers, SB 1347 states that "A
+          Physician who knowingly performs a dismemberment abortion and thereby
+          kills a human child is guilty of a class 6 felony nd shall be fined
+          under this title or imprisoned not more than 2 years, or both." The
+          bill doesn't apply to abortions that are necessary to save the life of
+          the mother.
         </Text>
       </ScrollView>
     </SafeAreaView>

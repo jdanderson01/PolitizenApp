@@ -8,22 +8,22 @@ import {
 } from "react-native";
 import TopNav from "../../components/Header";
 
-export default function TrumpTaxReturns() {
+export default function P05() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/trump-tax-returns.jpeg")}
+          source={require("../../assets/maricopa-flag.png")}
         />
-        <Text style={styles.title}>Trump's Tax Returns</Text>
-        <Text style={styles.articleText} t>
-          Former President Trump's Tax Returns, documents that have long been
-          shrouded in mystery and speculation, have finally been revealed to the
-          public. Many auditors and experts have questions in regards to Trump's
-          reporting of his finances, speculating that losses may have been
-          exaggerated to lower his tax burden or to dodge it entirely.
+        <Text style={styles.title}>P-05</Text>
+        <Text style={styles.articleText}>
+          Known as the Maricopa County Residential Parking Ordinance, it aims to
+          increase public health and safety by prohibiting the parking of
+          vehicles with a weight in excess of 10,000 pounds unless they meet a
+          set of conditions such as: loading or unloading the vehicle,
+          maintenance on the vehicle, or if its aiding in construction.
         </Text>
       </ScrollView>
     </SafeAreaView>

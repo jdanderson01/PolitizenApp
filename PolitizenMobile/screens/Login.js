@@ -8,14 +8,14 @@ import {
   Image,
   Pressable,
 } from "react-native";
-import { Input, Text } from "react-native-elements";
+import { Text } from "react-native-elements";
 
 export default function Login(props) {
-  const [email, setEmail] = useState(props.route.params.email);
+  const [username, setUsername] = useState(props.route.params.username);
   const [password, setPassword] = useState("");
 
-  function checkAuth(email, password) {
-    if (email == "UCF" && password == "Student") {
+  function checkAuth(username, password) {
+    if (username == "UCF" && password == "Student") {
       props.navigation.navigate("TabNavigator");
     } else {
       console.log("wrong email or password");
@@ -33,8 +33,8 @@ export default function Login(props) {
         <TextInput
           style={styles.input}
           placeholder="Enter email"
-          onChangeText={setEmail}
-          value={email}
+          onChangeText={setUsername}
+          value={username}
           underlineColorAndroid="transparent"
         />
         <TextInput
@@ -47,7 +47,7 @@ export default function Login(props) {
           style={styles.button}
           title="Submit"
           onPress={() => {
-            checkAuth(email, password);
+            checkAuth(username, password);
           }}
         >
           <Text style={styles.pText}>Sign in</Text>

@@ -8,22 +8,21 @@ import {
 } from "react-native";
 import TopNav from "../../components/Header";
 
-export default function TrumpTaxReturns() {
+export default function SB1035() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/trump-tax-returns.jpeg")}
+          source={require("../../assets/arizona-flag.png")}
         />
-        <Text style={styles.title}>Trump's Tax Returns</Text>
-        <Text style={styles.articleText} t>
-          Former President Trump's Tax Returns, documents that have long been
-          shrouded in mystery and speculation, have finally been revealed to the
-          public. Many auditors and experts have questions in regards to Trump's
-          reporting of his finances, speculating that losses may have been
-          exaggerated to lower his tax burden or to dodge it entirely.
+        <Text style={styles.title}>SB-1035</Text>
+        <Text style={styles.articleText}>
+          An amendment to an act relating to misdemeanor domestic violence
+          offenders. The specific section amended was 13-3601.01 and relatest o
+          treatment programs for domestic violence offenders. The bill was first
+          introduced by Senator Ward (R) in 2015.
         </Text>
       </ScrollView>
     </SafeAreaView>

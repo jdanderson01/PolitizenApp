@@ -14,43 +14,43 @@ import { useNavigation } from "@react-navigation/native";
 const articleData = [
   {
     key: 1,
-    image: require("../assets/candidates/CharlieCrist.jpg"),
-    title: "Charlie Crist",
-    component: "CharlieCrist",
+    image: require("../assets/maricopa-flag.png"),
+    title: "P-03",
+    component: "P03",
   },
   {
     key: 2,
-    image: require("../assets/candidates/HerschelWalker.jpg"),
-    title: "Herschel Walker",
-    component: "HerschelWalker",
+    image: require("../assets/maricopa-flag.png"),
+    title: "P-04",
+    component: "P04",
   },
   {
     key: 3,
-    image: require("../assets/candidates/KatieHobbs.jpeg"),
-    title: "Katie Hobbs",
-    component: "KatieHobbs",
+    image: require("../assets/maricopa-flag.png"),
+    title: "P-05",
+    component: "P05",
   },
   {
     key: 4,
-    image: require("../assets/candidates/RaphaelWarnock.jpg"),
-    title: "Raphael Warnock",
-    component: "RaphaelWarnock",
+    image: require("../assets/maricopa-flag.png"),
+    title: "P-06",
+    component: "P06",
   },
   {
     key: 5,
-    image: require("../assets/candidates/RonaldDeSantis.jpg"),
-    title: "Ronald DeSantis",
-    component: "RonDeSantis",
+    image: require("../assets/maricopa-flag.png"),
+    title: "P-07",
+    component: "P07",
   },
   {
     key: 6,
-    image: require("../assets/candidates/KariLake.jpg"),
-    title: "Kari Lake",
-    component: "KariLake",
+    image: require("../assets/maricopa-flag.png"),
+    title: "P-08",
+    component: "P08",
   },
 ];
 
-export default function CandidateScreen() {
+export default function LocalBillScreen() {
   const navigation = useNavigation();
   const handlePress = (component) => {
     navigation.navigate(component);
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 
   image: {
     height: 140,
-    width: 140,
+    width: 150,
     margin: 20,
   },
 

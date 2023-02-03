@@ -8,22 +8,23 @@ import {
 } from "react-native";
 import TopNav from "../../components/Header";
 
-export default function TrumpTaxReturns() {
+export default function P08() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/trump-tax-returns.jpeg")}
+          source={require("../../assets/maricopa-flag.png")}
         />
-        <Text style={styles.title}>Trump's Tax Returns</Text>
-        <Text style={styles.articleText} t>
-          Former President Trump's Tax Returns, documents that have long been
-          shrouded in mystery and speculation, have finally been revealed to the
-          public. Many auditors and experts have questions in regards to Trump's
-          reporting of his finances, speculating that losses may have been
-          exaggerated to lower his tax burden or to dodge it entirely.
+        <Text style={styles.title}>P-08</Text>
+        <Text style={styles.articleText}>
+          Known as the "Reduction of Commuter Use of Motor Vehicles by County
+          Employees," the purpose of this ordinance is to reduce commute trips
+          to and from work sites for County employees by providing vehicles such
+          as vans for vanwooling and parking for said vans. Subsidies are also
+          offered for carpooling and vanwooling, including but not limited to:
+          payment for fuel, insurance, parking.
         </Text>
       </ScrollView>
     </SafeAreaView>

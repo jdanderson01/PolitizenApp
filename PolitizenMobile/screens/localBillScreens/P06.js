@@ -8,22 +8,22 @@ import {
 } from "react-native";
 import TopNav from "../../components/Header";
 
-export default function TrumpTaxReturns() {
+export default function P06() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/trump-tax-returns.jpeg")}
+          source={require("../../assets/maricopa-flag.png")}
         />
-        <Text style={styles.title}>Trump's Tax Returns</Text>
-        <Text style={styles.articleText} t>
-          Former President Trump's Tax Returns, documents that have long been
-          shrouded in mystery and speculation, have finally been revealed to the
-          public. Many auditors and experts have questions in regards to Trump's
-          reporting of his finances, speculating that losses may have been
-          exaggerated to lower his tax burden or to dodge it entirely.
+        <Text style={styles.title}>P-06</Text>
+        <Text style={styles.articleText}>
+          Known as the Regulation of Barking Dogs, this ordinance makes it
+          unlawful to have custody or control of a dog that barks excessively.
+          Yowls, yips, or any other naturally occurring sound from a dog counts
+          as a bark. When a complaint is made, the County Agent will investigate
+          and recommend a mediator to resolve any potential disputes.
         </Text>
       </ScrollView>
     </SafeAreaView>

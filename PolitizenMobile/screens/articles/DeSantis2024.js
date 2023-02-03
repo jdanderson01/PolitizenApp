@@ -15,11 +15,16 @@ export default function DeSantis2024() {
       <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/voters-abortion.jpeg")}
+          source={require("../../assets/desantis-2024-plans.jpeg")}
         />
         <Text style={styles.title}>DeSantis' 2024 Plans</Text>
         <Text style={styles.articleText} t>
-          The Democratic Party looks to be poised for
+          There has been speculation that Florida Governor Ron DeSantis may make
+          a Presidential Bid in 2024. DeSantis himself has not come out and
+          announced his intent to run or made any overtures to such a thing, but
+          with his rising popularity and what's perceived as foundation
+          building, experts are wondering if he'll make a run at the Republican
+          nomination for the 2024 presidency.
         </Text>
       </ScrollView>
     </SafeAreaView>

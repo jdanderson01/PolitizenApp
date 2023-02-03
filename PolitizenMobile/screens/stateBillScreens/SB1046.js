@@ -8,22 +8,24 @@ import {
 } from "react-native";
 import TopNav from "../../components/Header";
 
-export default function TrumpTaxReturns() {
+export default function SB1046() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollVIew}>
         <Image
           style={styles.homeImg}
-          source={require("../../assets/trump-tax-returns.jpeg")}
+          source={require("../../assets/arizona-flag.png")}
         />
-        <Text style={styles.title}>Trump's Tax Returns</Text>
-        <Text style={styles.articleText} t>
-          Former President Trump's Tax Returns, documents that have long been
-          shrouded in mystery and speculation, have finally been revealed to the
-          public. Many auditors and experts have questions in regards to Trump's
-          reporting of his finances, speculating that losses may have been
-          exaggerated to lower his tax burden or to dodge it entirely.
+        <Text style={styles.title}>SB-1046</Text>
+        <Text style={styles.articleText}>
+          A bill first introduced in 2021 by Senator Wendy Rogers (R), SB 1046
+          relates to dividing interscholastic, intercollegiate, intramural, or
+          club athletic teams by biological sex. Athletes that dispute their sex
+          must prove their stated sex by giving a Physician's signed statement
+          that indicates sex based on: internal or external reproductive
+          anatomy, endogenously produced testosterone levels, or an analysis of
+          their genetic makeup.
         </Text>
       </ScrollView>
     </SafeAreaView>
