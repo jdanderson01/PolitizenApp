@@ -10,15 +10,15 @@ import {
 import { Text } from "react-native-elements";
 
 export default function Recover(props) {
-  const [email, setEmail] = useState(props.route.params.email);
+  const [email, setEmail] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text h2>Recover Password</Text>
+      <Text h2>Recover </Text>
       <TextInput
         style={styles.pInput}
         placeholder="Enter email"
-        onChangeText={setEmail}
+        onChangeText={(text) => setEmail(text)}
         value={email}
         underlineColorAndroid="transparent"
       />

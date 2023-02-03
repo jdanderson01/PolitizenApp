@@ -11,9 +11,11 @@ import {
 import { Text } from "react-native-elements";
 
 export default function Login(props) {
+  //username and password states
   const [username, setUsername] = useState(props.route.params.username);
   const [password, setPassword] = useState("");
 
+  //function to check if the correct username & password were put in.
   function checkAuth(username, password) {
     if (username == "UCF" && password == "Student") {
       props.navigation.navigate("TabNavigator");

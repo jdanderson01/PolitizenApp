@@ -9,17 +9,28 @@ import {
 } from "react-native";
 import { Text } from "react-native-elements";
 
-export default function Code() {
-  const [email, setEmail] = useState("123");
+export default function Code(props) {
+  //code to put in
+  const [code, setCode] = useState("");
+
+  //function to check the code. if it matches, the user is taken to the homescreen.
+  //if it doesn't match a console error pops up.
+  function checkAuth() {
+    if (code == "123") {
+      props.navigation.navigate("TabNavigator");
+    } else {
+      console.log("wrong email or password");
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <Text h2>Enter code sent to Mail</Text>
       <TextInput
         style={styles.pInput}
-        placeholder="Enter email"
-        onChangeText={setEmail}
-        value={email}
+        placeholder="Enter code"
+        onChangeText={setCode}
+        value={code}
         underlineColorAndroid="transparent"
       />
       <Pressable

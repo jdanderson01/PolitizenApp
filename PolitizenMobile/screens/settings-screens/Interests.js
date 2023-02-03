@@ -1,27 +1,50 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  SafeAreaView,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+
+//array of interests
+const interests = [
+  "Climate",
+  "Technology",
+  "Travel",
+  "Finance",
+  "LGBTQ+",
+  "Healthcare",
+  "Abortion",
+  "Education",
+  "Immigration",
+];
 
 export default function Interests() {
-  const [selected, setSelected] = useState(0);
   return (
-    <View style={styles.container}>
-      <TouchableOpacity>
-        <Text style={styles.text}>Climate</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>Yo</Text>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
     backgroundColor: "#dde4e5",
-    alignContent: "center",
+    alignItems: "center",
   },
 
-  button: {
+  interests: {
+    padding: 10,
+    backgroundColor: "#fff",
+    marginTop: 30,
+    margin: 10,
+    borderRadius: 15,
+    width: "80%",
     alignSelf: "flex-start",
-    color: "#fff",
   },
 
   text: {
