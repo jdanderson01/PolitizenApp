@@ -39,7 +39,7 @@ export default function TopNav() {
         <TouchableOpacity onPress={() => handlePress("Settings")}>
           <Ionicons
             style={styles.icon2}
-            name="person-outline"
+            name="menu-outline"
             size={30}
             color="black"
           />

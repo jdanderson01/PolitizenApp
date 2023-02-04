@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,7 +11,7 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
-const articleData = [
+const localBillData = [
   {
     key: 1,
     image: require("../assets/maricopa-flag.png"),
@@ -61,7 +61,7 @@ export default function LocalBillScreen() {
       <TopNav style={styles.topNav} />
       <FlatList
         numColumns={2}
-        data={articleData}
+        data={localBillData}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
             <TouchableOpacity onPress={() => handlePress(item.component)}>

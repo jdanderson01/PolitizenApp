@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,7 +11,7 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
-const articleData = [
+const stateBillData = [
   {
     key: 1,
     image: require("../assets/arizona-flag.png"),
@@ -61,7 +61,7 @@ export default function StateBillScreen() {
       <TopNav style={styles.topNav} />
       <FlatList
         numColumns={2}
-        data={articleData}
+        data={stateBillData}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
             <TouchableOpacity onPress={() => handlePress(item.component)}>

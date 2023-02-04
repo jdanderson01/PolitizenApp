@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
   pInput: {
     height: 40,
-    width: 371,
+    width: 300,
     margin: 12,
     backgroundColor: "#fff",
     borderWidth: 1,

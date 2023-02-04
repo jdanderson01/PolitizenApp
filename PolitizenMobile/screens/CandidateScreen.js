@@ -11,7 +11,7 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
-const articleData = [
+const candidateData = [
   {
     key: 1,
     image: require("../assets/candidates/CharlieCrist.jpg"),
@@ -61,7 +61,7 @@ export default function CandidateScreen() {
       <TopNav style={styles.topNav} />
       <FlatList
         numColumns={2}
-        data={articleData}
+        data={candidateData}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
             <TouchableOpacity onPress={() => handlePress(item.component)}>

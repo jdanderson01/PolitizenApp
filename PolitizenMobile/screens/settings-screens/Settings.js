@@ -20,20 +20,13 @@ const data = [
 
   {
     key: 2,
-    title: "Edit your interests",
-    icon: "chevron-forward-outline",
-    component: "Interests",
-  },
-
-  {
-    key: 3,
     title: "Privacy",
     icon: "chevron-forward-outline",
     component: "Privacy",
   },
 
   {
-    key: 4,
+    key: 3,
     title: "Change Location",
     icon: "chevron-forward-outline",
     component: "Location",

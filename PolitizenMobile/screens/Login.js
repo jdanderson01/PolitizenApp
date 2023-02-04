@@ -31,10 +31,10 @@ export default function Login(props) {
           style={styles.tinyLogo}
           source={require(".././assets/politizen-logo.png")}
         />
-        <Text>Sign In</Text>
+        <Text style={styles.signText}>Sign In</Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter email"
+          placeholder="Enter username"
           onChangeText={setUsername}
           value={username}
           underlineColorAndroid="transparent"
@@ -96,6 +96,12 @@ const styles = StyleSheet.create({
     width: 371,
   },
 
+  signText: {
+    alignSelf: "center",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+
   input: {
     height: 40,
     margin: 12,
@@ -124,7 +130,7 @@ const styles = StyleSheet.create({
 
   pText: {
     color: "#fff",
-    textAlign: "center",
+    alignSelf: "center",
     fontSize: 20,
   },
 

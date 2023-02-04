@@ -1,6 +1,7 @@
-//import react packages
+//import expo & react
 import "react-native-gesture-handler";
-import React, { useState } from "react";
+import React from "react";
+import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -53,12 +54,11 @@ import TrumpTaxReturns from "./screens/articles/TrumpTaxReturns";
 //settings screens
 import Settings from "./screens/settings-screens/Settings";
 import Notifications from "./screens/settings-screens/Notifications";
-import Interests from "./screens/settings-screens/Interests";
 import Privacy from "./screens/settings-screens/Privacy";
 import Location from "./screens/settings-screens/Location";
 
 const user = {
-  email: "",
+  user: "",
 };
 
 //initialize navigation variables
@@ -81,12 +81,8 @@ function TabNavigator() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({ focused, size }) => (
-            <Ionicons
-              name="home"
-              size={size}
-              color={focused ? "#62787f" : "black"}
-            />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
           ),
         }}
       />
@@ -138,11 +134,6 @@ export default function App() {
           initialParams={user}
         />
         <Stack.Screen name="Recover" component={Recover} initialParams={user} />
-        <Stack.Screen
-          name="Interests"
-          component={Interests}
-          initialParams={user}
-        />
         <Stack.Screen name="Code" component={Code} initialParams={user} />
         <Stack.Screen name="Donate" component={Donate} />
         <Stack.Screen name="CharlieCrist" component={CharlieCrist} />
