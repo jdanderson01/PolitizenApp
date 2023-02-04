@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   bubble: {
     alignItems: "center",
     height: 40,
+    width: 300,
     margin: 12,
     marginTop: 35,
     backgroundColor: "#fff",

@@ -68,9 +68,9 @@ const styles = StyleSheet.create({
   },
 
   subButton: {
-    backgroundColor: "#fff",
+    backgroundColor: "#62787f",
     height: 65,
-    width: 200,
+    width: 300,
     borderWidth: 1,
     borderRadius: 13,
     padding: 10,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   pText: {
-    color: "#000",
+    color: "#fff",
     textAlign: "center",
     fontSize: 20,
     padding: 10,
