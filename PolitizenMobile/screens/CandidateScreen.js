@@ -11,6 +11,7 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
+//initialize variable to hold an array that stores candidate data
 const candidateData = [
   {
     key: 1,
@@ -51,6 +52,7 @@ const candidateData = [
 ];
 
 export default function CandidateScreen() {
+  //calling usenavigation and putting it in a function to use within the flatlist. component is passed as its a property of the array.
   const navigation = useNavigation();
   const handlePress = (component) => {
     navigation.navigate(component);

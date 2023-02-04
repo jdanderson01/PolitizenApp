@@ -11,6 +11,8 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
+//initiaize variable to hold the local bill data array
+
 const localBillData = [
   {
     key: 1,

@@ -5,6 +5,8 @@ import { Ionicons } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 export default function TopNav() {
+  //store the useNavigation component in a variable so it can be called in the handlePress().
+  //component is passed as a prop so you can put the name of a component/file and it'll be navigated to.
   const navigation = useNavigation();
   const handlePress = (component) => {
     navigation.navigate(component);

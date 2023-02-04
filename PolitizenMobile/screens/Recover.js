@@ -14,7 +14,7 @@ export default function Recover(props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Recover </Text>
+      <Text>Recover</Text>
       <TextInput
         style={styles.pInput}
         placeholder="Enter email"

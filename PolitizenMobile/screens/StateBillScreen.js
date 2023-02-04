@@ -11,6 +11,7 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
+//initialize variable to hold the state bill data array
 const stateBillData = [
   {
     key: 1,
