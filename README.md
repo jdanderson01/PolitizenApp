@@ -10,3 +10,6 @@ $ npm install
 # Run the app
 $ npm start
 ```
+login details:
+username: UCF
+password: Student
