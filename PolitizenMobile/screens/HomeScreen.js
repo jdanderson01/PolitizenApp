@@ -92,7 +92,8 @@ const styles = StyleSheet.create({
   greyRectangleOne: {
     width: 250,
     height: 95,
-    alignSelf: "center",
+    borderRadius: 2,
+    alignSelf: "flex-start",
     alignContent: "center",
     marginTop: 15,
     backgroundColor: "#cccccc",
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
   greyRectangleTwo: {
     width: 250,
     height: 95,
+    borderRadius: 2,
     marginTop: 50,
     alignSelf: "center",
     alignContent: "center",

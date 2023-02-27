@@ -126,7 +126,6 @@ export default function App() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Splash" component={Splash} initialParams={user} />
         <Stack.Screen name="Login" component={Login} initialParams={user} />
         <Stack.Screen
           name="Register"

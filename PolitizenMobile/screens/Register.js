@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Pressable, TextInput } from "react-native";
 import { Text } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 //regular expression to ensure an email is in the input field
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -18,13 +19,22 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const auth = getAuth();
+
   const accountValidation = () => {
     if (
       emailRegex.test(email) &&
       usernameRegex.test(username) &&
       passwordRegex.test(password)
     ) {
-      navigation.navigate("TabNavigator");
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          console.log("User created!");
+          navigation.navigate("TabNavigator");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } else {
       console.log("Form is invalid");
     }

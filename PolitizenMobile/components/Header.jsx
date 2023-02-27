@@ -15,7 +15,7 @@ export default function TopNav() {
     <Header
       containerStyle={{
         backgroundColor: "#d5d5d5",
-        height: 100,
+        height: 86,
         maxWidth: 430,
         paddingTop: 55,
       }}

@@ -9,19 +9,25 @@ import {
   Pressable,
 } from "react-native";
 import { Text } from "react-native-elements";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Login(props) {
   //username and password states
-  const [username, setUsername] = useState(props.route.params.username);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const auth = getAuth();
+
   //function to check if the correct username & password were put in.
-  function checkAuth(username, password) {
-    if (username == "UCF" && password == "Student") {
-      props.navigation.navigate("TabNavigator");
-    } else {
-      console.log("wrong email or password");
-    }
+  function checkAuth() {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Sign in success, navigate to the next screen
+        props.navigation.navigate("TabNavigator");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }
 
   return (
@@ -34,9 +40,9 @@ export default function Login(props) {
         <Text style={styles.signText}>Sign In</Text>
         <TextInput
           style={styles.input}
-          placeholder="Enter username"
-          onChangeText={setUsername}
-          value={username}
+          placeholder="Enter E-Mail"
+          onChangeText={setEmail}
+          value={email}
           underlineColorAndroid="transparent"
         />
         <TextInput
@@ -135,7 +141,7 @@ const styles = StyleSheet.create({
   },
 
   regText: {
-    margin: 8,
+    margin: 4,
     alignItems: "center",
     justifyContent: "center",
   },
