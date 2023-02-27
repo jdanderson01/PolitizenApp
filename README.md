@@ -7,10 +7,13 @@ $ cd PolitizenMobile
 # Install dependencies
 $ npm install
 
-# Run the app
-$ npm start
+# Open Simulator app (XCode for iOs)
 
-Login Details
-username: UCF
-password: Student
+# Run the app
+$ npx expo start
+$ press i for iOs simulator
+
+Login Details (case-sensitive)
+Username: UCF
+Password: Student
 ```
