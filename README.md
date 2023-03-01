@@ -12,8 +12,4 @@ $ npm install
 # Run the app
 $ npx expo start
 $ press i for iOs simulator
-
-Login Details (case-sensitive)
-Username: UCF
-Password: Student
 ```
