@@ -9,20 +9,19 @@ import {
   Pressable,
 } from "react-native";
 import { Text } from "react-native-elements";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Firebase";
 
 export default function Login(props) {
   //username and password states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const auth = getAuth();
-
   //function to check if the correct username & password were put in.
   function checkAuth() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Sign in success, navigate to the next screen
+        // Navigate to home screen of app on success
         props.navigation.navigate("TabNavigator");
       })
       .catch((error) => {
@@ -55,7 +54,7 @@ export default function Login(props) {
           style={styles.button}
           title="Submit"
           onPress={() => {
-            checkAuth(username, password);
+            checkAuth();
           }}
         >
           <Text style={styles.pText}>Sign in</Text>
