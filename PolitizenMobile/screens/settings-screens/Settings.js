@@ -41,6 +41,10 @@ export default function SettingsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.header}>Settings</Text>
+      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
+          <Text style={styles.listText}>Home</Text>
+      </TouchableOpacity>
+      
       <FlatList
         numRows={4}
         data={data}
