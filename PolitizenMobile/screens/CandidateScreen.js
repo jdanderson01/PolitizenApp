@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,71 +7,71 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import TopNav from "../components/Header";
-import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
-//initialize variable to hold an array that stores candidate data
-const candidateData = [
-  {
-    key: 1,
-    image: require("../assets/candidates/CharlieCrist.jpg"),
-    title: "Charlie Crist",
-    component: "CharlieCrist",
-  },
-  {
-    key: 2,
-    image: require("../assets/candidates/HerschelWalker.jpg"),
-    title: "Herschel Walker",
-    component: "HerschelWalker",
-  },
-  {
-    key: 3,
-    image: require("../assets/candidates/KatieHobbs.jpeg"),
-    title: "Katie Hobbs",
-    component: "KatieHobbs",
-  },
-  {
-    key: 4,
-    image: require("../assets/candidates/RaphaelWarnock.jpg"),
-    title: "Raphael Warnock",
-    component: "RaphaelWarnock",
-  },
-  {
-    key: 5,
-    image: require("../assets/candidates/RonaldDeSantis.jpg"),
-    title: "Ronald DeSantis",
-    component: "RonDeSantis",
-  },
-  {
-    key: 6,
-    image: require("../assets/candidates/KariLake.jpg"),
-    title: "Kari Lake",
-    component: "KariLake",
-  },
-];
+const API_KEY = "AIzaSyDDjegeqZJYLSkRgDCjGJppSheZ2QPkoLQ";
 
 export default function CandidateScreen() {
-  //calling usenavigation and putting it in a function to use within the flatlist. component is passed as its a property of the array.
-  const navigation = useNavigation();
-  const handlePress = (component) => {
-    navigation.navigate(component);
+  const [address, setAddress] = useState("");
+  const [candidates, setCandidates] = useState([]);
+
+  const handleAddressChange = (text) => {
+    setAddress(text);
+  };
+
+  const handleSearch = () => {
+    const url = `https://www.googleapis.com/civicinfo/v2/representatives?key=${API_KEY}&address=${encodeURIComponent(
+      address
+    )}`;
+
+    axios
+      .get(url)
+      .then((response) => {
+        console.log(response.data);
+        setCandidates(response.data.officials);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <TopNav style={styles.topNav} />
+      <TopNav />
+      <View style={styles.searchBar}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Enter your address"
+          value={address}
+          onChangeText={handleAddressChange}
+        />
+        <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+          <Text style={styles.searchButtonText}>Search</Text>
+        </TouchableOpacity>
+      </View>
       <FlatList
         numColumns={2}
-        data={candidateData}
+        data={candidates}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
-            <TouchableOpacity onPress={() => handlePress(item.component)}>
-              <Image source={item.image} style={styles.image} />
-              <Text style={styles.title}>{item.title}</Text>
+            <TouchableOpacity onPress={() => handlePress(item.ocdId)}>
+              <Image
+                source={{
+                  uri:
+                    item.photoUrl ||
+                    "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png",
+                }}
+                style={styles.image}
+              />
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.subtitle}>{item.party}</Text>
             </TouchableOpacity>
           </View>
         )}
+        keyExtractor={(item) => item.ocdId}
       />
     </SafeAreaView>
   );
@@ -82,6 +82,35 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#dde4e5",
     alignItems: "center",
+  },
+
+  searchBar: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+
+  searchInput: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 4,
+    marginRight: 10,
+    paddingHorizontal: 10,
+  },
+
+  searchButton: {
+    backgroundColor: "#007bff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 4,
+  },
+
+  searchButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
 
   imageContainer: {
@@ -101,8 +130,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  tinyLogo: {
-    height: 110,
-    width: 111,
+  subtitle: {
+    marginTop: 2,
+    alignSelf: "center",
   },
 });
