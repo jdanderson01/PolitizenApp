@@ -11,6 +11,12 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
+//so I dont have to check the doc again
+
+//getBill template: https://api.legiscan.com/?key=APIKEY&op=getBill&id=BILL_ID
+
+//getBillText template:https://api.legiscan.com/?key=APIKEY&op=getBillText&id=DOC_ID
+
 //initialize variable to hold the state bill data array
 const stateBillData = [
   {
