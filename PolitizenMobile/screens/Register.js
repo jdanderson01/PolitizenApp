@@ -35,8 +35,9 @@ export default function Register() {
         .catch((error) => {
           console.log(error);
         });
-    } else {
+    } else if (passwordRegex.test(password) == false){
       console.log("Form is invalid");
+      //return text element "password must include a letter and a number"
     }
   };
 
