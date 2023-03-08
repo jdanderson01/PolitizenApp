@@ -16,7 +16,7 @@ export default function TopNav() {
       containerStyle={{
         backgroundColor: "#d5d5d5",
         height: 86,
-        maxWidth: 430,
+        minWidth: "100%",
         paddingTop: 55,
       }}
       leftComponent={
@@ -54,7 +54,7 @@ export default function TopNav() {
 const styles = StyleSheet.create({
   headLogo: {
     height: 175,
-    width: 195,
+    width: 175,
     marginBottom: 40,
   },
 
