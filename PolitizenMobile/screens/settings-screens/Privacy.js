@@ -1,10 +1,18 @@
 import React from "react";
-import { StyleSheet, ScrollView, Text, SafeAreaView } from "react-native";
+import { StyleSheet, ScrollView, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Privacy() {
+  const navigation = useNavigation();
+  const handlePress = (component) => {
+    navigation.navigate(component);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
+      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
+          <Text style={styles.listText}>Home</Text>
+      </TouchableOpacity>
         <Text style={styles.bodyText}>
           Politizen operates the Politizen application, which provides access to
           information regarding political candidates and legislation.{"\n"}

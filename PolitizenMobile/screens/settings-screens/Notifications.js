@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import SwitchWithIcons from "react-native-switch-with-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Notifications() {
   const [notifications, setNotifications] = useState(false);
 
+  const navigation = useNavigation();
+  const handlePress = (component) => {
+    navigation.navigate(component);
+  };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
+          <Text style={styles.listText}>Home</Text>
+      </TouchableOpacity>
       <Text>Notification Settings</Text>
       <View style={styles.bubble}>
         <Text>Toggle Push Notifications</Text>

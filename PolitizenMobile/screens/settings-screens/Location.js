@@ -1,12 +1,21 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
 import SwitchWithIcons from "react-native-switch-with-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Location() {
   const [location, setLocation] = useState("");
 
+  const navigation = useNavigation();
+  const handlePress = (component) => {
+    navigation.navigate(component);
+  };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
+          <Text style={styles.listText}>Home</Text>
+      </TouchableOpacity>
       <Text>Enter Location Below</Text>
       <View style={styles.bubble}>
         <TextInput
