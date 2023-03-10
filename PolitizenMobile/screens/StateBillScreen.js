@@ -13,7 +13,9 @@ import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
+//legiscan key
 const API_KEY = "18c3b84f2e7b6ea9b7f13332187403e5";
+
 
 //so I dont have to check the doc again
 
@@ -58,7 +60,7 @@ export default function StateBillScreen() {
       <View style={styles.searchBar}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Enter State"
+          placeholder="Enter State ex. FL"
           value={address}
           onChangeText={handleAddressChange}
         />
@@ -72,15 +74,7 @@ export default function StateBillScreen() {
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
             <TouchableOpacity onPress={() => handlePress(item.id)}>
-              <Image
-                source={{
-                  uri:
-                    item.photoUrl ||
-                    "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png",
-                }}
-                style={styles.image}
-              />
-              <Text style={styles.title}>{item}</Text>
+              <Text style={styles.title}>{item.bill_id}</Text>
             </TouchableOpacity>
           </View>
         )}
