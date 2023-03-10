@@ -33,6 +33,7 @@ export default function StateBillScreen() {
 
   const [address, setAddress] = useState("");
   const [bill, setBill] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleAddressChange = (text) => {
     setAddress(text);
@@ -41,13 +42,12 @@ export default function StateBillScreen() {
   const handleSearch = () => {
     const url = `https://api.legiscan.com/?key=${API_KEY}&op=getMasterList&state=${encodeURIComponent(address)}`;
 
-    //getting invalid state 
-
     axios
       .get(url)
       .then((response) => {
         console.log(response.data);
         setBill(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -64,22 +64,29 @@ export default function StateBillScreen() {
           value={address}
           onChangeText={handleAddressChange}
         />
-        <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+        <TouchableOpacity style={styles.searchButton} onPress={() => {
+                  handleSearch();
+                  setLoading(true);
+                }}>
           <Text style={styles.searchButtonText}>Search</Text>
         </TouchableOpacity>
       </View>
+      {loading ? (
+         <p>Loading...</p>
+      ) : (           
       <FlatList
         numColumns={1}
         data={bill}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
-            <TouchableOpacity onPress={() => handlePress(item.id)}>
+            <TouchableOpacity onPress={() => handlePress(item)}>
               <Text style={styles.title}>{item.bill_id}</Text>
             </TouchableOpacity>
           </View>
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
       />
+      )}
     </SafeAreaView>
   );
 }
@@ -111,5 +118,42 @@ const styles = StyleSheet.create({
   tinyLogo: {
     height: 110,
     width: 111,
+  },
+  title: {
+    marginTop: 2,
+    alignSelf: "center",
+  },
+
+  subtitle: {
+    marginTop: 2,
+    alignSelf: "center",
+  },
+  searchBar: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+
+  searchInput: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 4,
+    marginRight: 10,
+    paddingHorizontal: 10,
+  },
+
+  searchButton: {
+    backgroundColor: "#007bff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 4,
+  },
+
+  searchButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
