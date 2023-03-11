@@ -11,12 +11,16 @@ import {
 } from "react-native";
 import TopNav from "../components/Header";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
+import CandidateInfoScreen from "../screens/candidatesScreen/CandidateInfoScreen";
 
 const API_KEY = "AIzaSyDDjegeqZJYLSkRgDCjGJppSheZ2QPkoLQ";
 
 export default function CandidateScreen() {
   const [address, setAddress] = useState("");
   const [candidates, setCandidates] = useState([]);
+  const [selectedCandidate, setSelectedCandidate] = useState(null);
+  const navigation = useNavigation();
 
   const handleAddressChange = (text) => {
     setAddress(text);
@@ -38,6 +42,11 @@ export default function CandidateScreen() {
       });
   };
 
+  const handlePress = (candidate) => {
+    setSelectedCandidate(candidate);
+    navigation.navigate("CandidateInfo", { candidate });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
@@ -57,7 +66,7 @@ export default function CandidateScreen() {
         data={candidates}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
-            <TouchableOpacity onPress={() => handlePress(item.ocdId)}>
+            <TouchableOpacity onPress={() => handlePress(item)}>
               <Image
                 source={{
                   uri:

@@ -7,7 +7,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
-  TextInput
+  TextInput,
 } from "react-native";
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
@@ -15,7 +15,6 @@ import axios from "axios";
 
 //legiscan key
 const API_KEY = "18c3b84f2e7b6ea9b7f13332187403e5";
-
 
 //so I dont have to check the doc again
 
@@ -40,7 +39,9 @@ export default function StateBillScreen() {
   };
 
   const handleSearch = () => {
-    const url = `https://api.legiscan.com/?key=${API_KEY}&op=getMasterList&state=${encodeURIComponent(address)}`;
+    const url = `https://api.legiscan.com/?key=${API_KEY}&op=getMasterList&state=${encodeURIComponent(
+      address
+    )}`;
 
     axios
       .get(url)
@@ -64,28 +65,31 @@ export default function StateBillScreen() {
           value={address}
           onChangeText={handleAddressChange}
         />
-        <TouchableOpacity style={styles.searchButton} onPress={() => {
-                  handleSearch();
-                  setLoading(true);
-                }}>
+        <TouchableOpacity
+          style={styles.searchButton}
+          onPress={() => {
+            handleSearch();
+            setLoading(true);
+          }}
+        >
           <Text style={styles.searchButtonText}>Search</Text>
         </TouchableOpacity>
       </View>
       {loading ? (
-         <p>Loading...</p>
-      ) : (           
-      <FlatList
-        numColumns={1}
-        data={bill}
-        renderItem={({ item }) => (
-          <View style={styles.imgContainer}>
-            <TouchableOpacity onPress={() => handlePress(item)}>
-              <Text style={styles.title}>{item.bill_id}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-        keyExtractor={item => item.id}
-      />
+        <p>Loading...</p>
+      ) : (
+        <FlatList
+          numColumns={1}
+          data={bill}
+          renderItem={({ item }) => (
+            <View style={styles.imgContainer}>
+              <TouchableOpacity onPress={() => handlePress(item)}>
+                <Text style={styles.title}>{item.bill_id}</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+        />
       )}
     </SafeAreaView>
   );

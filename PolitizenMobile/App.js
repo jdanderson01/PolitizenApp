@@ -42,6 +42,7 @@ import KariLake from "./screens/candidatesScreen/KariLake";
 import KatieHobbs from "./screens/candidatesScreen/KatieHobbs";
 import RaphaelWarnock from "./screens/candidatesScreen/RaphaelWarnock";
 import RonDeSantis from "./screens/candidatesScreen/RonDeSantis";
+import CandidateInfoScreen from "./screens/candidatesScreen/CandidateInfoScreen";
 
 //article screens
 import DemsWinNV from "./screens/articles/DemsWinNV";
@@ -135,6 +136,7 @@ export default function App() {
         <Stack.Screen name="Recover" component={Recover} initialParams={user} />
         <Stack.Screen name="Code" component={Code} initialParams={user} />
         <Stack.Screen name="Donate" component={Donate} />
+        <Stack.Screen name="CandidateInfo" component={CandidateInfoScreen} />
         <Stack.Screen name="CharlieCrist" component={CharlieCrist} />
         <Stack.Screen name="HerschelWalker" component={HerschelWalker} />
         <Stack.Screen name="KariLake" component={KariLake} />
