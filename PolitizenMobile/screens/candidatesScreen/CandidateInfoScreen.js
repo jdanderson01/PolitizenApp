@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
+import axios from "axios";
 import TopNav from "../../components/Header";
 
+//image of the US flag if candidate photoURL link
 const fallbackImage =
   "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png";
 
@@ -10,16 +12,17 @@ export default function CandidateInfoScreen({ route }) {
   const [office, setOffice] = useState("");
 
   useEffect(() => {
-    fetch(
-      `https://www.googleapis.com/civicinfo/v2/representatives/${candidate.divisionId}?levels=administrativeArea1&roles=legislatorUpperBody&key=YOUR_API_KEY_HERE`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const official = data.officials.find(
+    axios
+      .get(
+        `https://www.googleapis.com/civicinfo/v2/representatives/${candidate.divisionId}?levels=administrativeArea1&roles=legislatorUpperBody&key=AIzaSyDDjegeqZJYLSkRgDCjGJppSheZ2QPkoLQ`
+      )
+      .then((response) => {
+        const official = response.data.officials.find(
           (official) => official.name === candidate.name
         );
         setOffice(official?.office?.name || "");
-      });
+      })
+      .catch((error) => console.error(error));
   }, [candidate]);
 
   return (

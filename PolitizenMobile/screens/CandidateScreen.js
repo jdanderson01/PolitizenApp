@@ -12,8 +12,8 @@ import {
 import TopNav from "../components/Header";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-import CandidateInfoScreen from "../screens/candidatesScreen/CandidateInfoScreen";
 
+//variable ot hold API Key
 const API_KEY = "AIzaSyDDjegeqZJYLSkRgDCjGJppSheZ2QPkoLQ";
 
 export default function CandidateScreen() {
@@ -22,10 +22,12 @@ export default function CandidateScreen() {
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const navigation = useNavigation();
 
+  //handles state input
   const handleAddressChange = (text) => {
     setAddress(text);
   };
 
+  //on press of the search button calls the API based on the state the user input
   const handleSearch = () => {
     const url = `https://www.googleapis.com/civicinfo/v2/representatives?key=${API_KEY}&address=${encodeURIComponent(
       address
@@ -42,6 +44,7 @@ export default function CandidateScreen() {
       });
   };
 
+  //navigates the user to the candidate screen based on the cnadidate they pressed.
   const handlePress = (candidate) => {
     setSelectedCandidate(candidate);
     navigation.navigate("CandidateInfo", { candidate });
