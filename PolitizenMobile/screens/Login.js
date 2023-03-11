@@ -66,7 +66,7 @@ export default function Login(props) {
               props.navigation.navigate("Register");
             }}
           >
-            <Text style={styles.pressStyle}>Create one.</Text>
+            <Text style={styles.pressStyle}>Create one</Text>
           </Pressable>
         </Text>
         <Text style={styles.regText}>
