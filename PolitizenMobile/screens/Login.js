@@ -33,7 +33,7 @@ export default function Login(props) {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Image
-          style={styles.tinyLogo}
+          style={styles.logo}
           source={require(".././assets/politizen-logo.png")}
         />
         <Text style={styles.signText}>Sign In</Text>
@@ -96,9 +96,10 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 
-  tinyLogo: {
+  logo: {
     height: 370,
     width: 371,
+    alignSelf: "center",
   },
 
   signText: {

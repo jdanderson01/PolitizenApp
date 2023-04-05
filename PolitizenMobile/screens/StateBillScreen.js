@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   FlatList,
   TouchableOpacity,
   TextInput,
@@ -16,19 +15,8 @@ import axios from "axios";
 //legiscan key
 const API_KEY = "18c3b84f2e7b6ea9b7f13332187403e5";
 
-//so I dont have to check the doc again
-
-//getBill template: https://api.legiscan.com/?key=APIKEY&op=getBill&id=BILL_ID
-
-//getBillText template:https://api.legiscan.com/?key=APIKEY&op=getBillText&id=DOC_ID
-
-//getMasterList template: https://api.legiscan.com/?key=APIKEY&op=getMasterList&state=STATE
-
 export default function StateBillScreen() {
   const navigation = useNavigation();
-  const handlePress = (component) => {
-    navigation.navigate(component);
-  };
 
   const [address, setAddress] = useState("");
   const [bill, setBill] = useState([]);
@@ -47,13 +35,25 @@ export default function StateBillScreen() {
       .get(url)
       .then((response) => {
         console.log(response.data);
-        setBill(response.data);
+        const masterlist = response.data.masterlist;
+        setBill(Object.values(masterlist));
         setLoading(false);
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
+  const handlePress = (billData) => {
+    navigation.navigate("BillDetailScreen", { billData });
+  };
+
+  const renderBillItem = ({ item }) => (
+    <TouchableOpacity style={styles.billItem} onPress={() => handlePress(item)}>
+      <Text style={styles.title}>Bill ID: {item.bill_id}</Text>
+      <Text style={styles.title}>Title: {item.title}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -65,30 +65,17 @@ export default function StateBillScreen() {
           value={address}
           onChangeText={handleAddressChange}
         />
-        <TouchableOpacity
-          style={styles.searchButton}
-          onPress={() => {
-            handleSearch();
-            setLoading(true);
-          }}
-        >
+        <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
           <Text style={styles.searchButtonText}>Search</Text>
         </TouchableOpacity>
       </View>
       {loading ? (
-        <p>Loading...</p>
+        <Text>Loading ....</Text>
       ) : (
         <FlatList
-          numColumns={1}
           data={bill}
-          renderItem={({ item }) => (
-            <View style={styles.imgContainer}>
-              <TouchableOpacity onPress={() => handlePress(item)}>
-                <Text style={styles.title}>{item.bill_id}</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
+          renderItem={renderBillItem}
+          keyExtractor={(item) => item.bill_id}
         />
       )}
     </SafeAreaView>
@@ -100,18 +87,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#dde4e5",
     alignItems: "center",
-  },
-
-  imageContainer: {
-    flex: 1,
-    alignItems: "center",
-    margin: 10,
-  },
-
-  image: {
-    height: 140,
-    width: 150,
-    margin: 20,
   },
 
   title: {

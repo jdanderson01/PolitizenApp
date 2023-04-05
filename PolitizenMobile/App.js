@@ -34,6 +34,7 @@ import SB1046 from "./screens/stateBillScreens/SB1046";
 import SB1339 from "./screens/stateBillScreens/SB1339";
 import SB1347 from "./screens/stateBillScreens/SB1347";
 import SB1511 from "./screens/stateBillScreens/SB1511";
+import BillDetailScreen from "./screens/billData";
 
 //import candidate screens
 import CharlieCrist from "./screens/candidatesScreen/CharlieCrist";
@@ -150,6 +151,7 @@ export default function App() {
         <Stack.Screen name="TabNavigator" component={TabNavigator} />
         <Stack.Screen name="LocalBillScreen" component={LocalBillScreen} />
         <Stack.Screen name="StateBillScreen" component={StateBillScreen} />
+        <Stack.Screen name="BillDetailScreen" component={BillDetailScreen} />
         <Stack.Screen name="SB1035" component={SB1035} />
         <Stack.Screen name="SB1042" component={SB1042} />
         <Stack.Screen name="SB1046" component={SB1046} />

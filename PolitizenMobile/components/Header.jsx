@@ -14,10 +14,11 @@ export default function TopNav() {
   return (
     <Header
       containerStyle={{
+        width: "100%",
+        height: "15%",
+        alignItems: "center",
+        justifyContent: "center",
         backgroundColor: "#d5d5d5",
-        height: 86,
-        minWidth: "100%",
-        paddingTop: 55,
       }}
       leftComponent={
         <TouchableOpacity onPress={() => handlePress("Donate")}>
