@@ -6,11 +6,19 @@ import {
   TextInput,
   Text,
 } from "react-native";
+import TopNav from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 export default function DonateScreen() {
+  const navigation = useNavigation();
+  const handlePress = (component) => {
+    navigation.navigate(component);
+  };
+
   const [number, onChangeNumber] = useState("");
   return (
     <SafeAreaView style={styles.container}>
+      <TopNav style={styles.topNav} />
       <ScrollView style={styles.scrollVIew}>
         <Text style={styles.pText}>Donate</Text>
         <TextInput
