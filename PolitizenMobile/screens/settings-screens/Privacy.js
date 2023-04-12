@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, ScrollView, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import TopNav from "../../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Privacy() {
@@ -9,10 +10,8 @@ export default function Privacy() {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <TopNav style={styles.topNav} />
       <ScrollView>
-      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
-          <Text style={styles.listText}>Home</Text>
-      </TouchableOpacity>
         <Text style={styles.bodyText}>
           Politizen operates the Politizen application, which provides access to
           information regarding political candidates and legislation.{"\n"}
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#dde4e5",
     alignItems: "center",
-    justifyContent: "center",
   },
 
   subHead: {

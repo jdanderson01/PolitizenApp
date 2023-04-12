@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "react-native-vector-icons";
+import TopNav from "../../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
 const data = [
@@ -40,10 +41,8 @@ export default function SettingsScreen() {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <TopNav style={styles.topNav} />
       <Text style={styles.header}>Settings</Text>
-      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
-          <Text style={styles.listText}>Home</Text>
-      </TouchableOpacity>
       
       <FlatList
         numRows={4}
@@ -66,7 +65,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#dde4e5",
     alignItems: "center",
-    justifyContent: "center",
   },
 
   scrollView: {

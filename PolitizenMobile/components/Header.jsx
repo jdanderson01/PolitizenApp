@@ -19,7 +19,7 @@ export default function TopNav() {
         maxHeight: "200px",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#d5d5d5",
+        backgroundColor: "#dde45",
       }}
       leftComponent={
         <TouchableOpacity onPress={() => handlePress("Donate")}>
