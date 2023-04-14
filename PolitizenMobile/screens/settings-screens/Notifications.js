@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import SwitchWithIcons from "react-native-switch-with-icons";
+import TopNav from "../../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Notifications() {
@@ -13,9 +14,7 @@ export default function Notifications() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
-          <Text style={styles.listText}>Home</Text>
-      </TouchableOpacity>
+      <TopNav style={styles.topNav} />
       <Text>Notification Settings</Text>
       <View style={styles.bubble}>
         <Text>Toggle Push Notifications</Text>
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#dde4e5",
     alignItems: "center",
-    justifyContent: "center",
   },
 
   toggle: {

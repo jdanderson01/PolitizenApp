@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
 import SwitchWithIcons from "react-native-switch-with-icons";
+import TopNav from "../../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Location() {
@@ -13,9 +14,7 @@ export default function Location() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => handlePress('HomeScreen')}>
-          <Text style={styles.listText}>Home</Text>
-      </TouchableOpacity>
+      <TopNav style={styles.topNav} />
       <Text>Enter Location Below</Text>
       <View style={styles.bubble}>
         <TextInput
@@ -35,7 +34,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#dde4e5",
     alignItems: "center",
-    justifyContent: "center",
   },
 
   bubble: {
@@ -43,7 +41,6 @@ const styles = StyleSheet.create({
     height: 40,
     width: 300,
     margin: 12,
-    marginTop: 35,
     backgroundColor: "#fff",
     borderWidth: 1,
     borderRadius: 12,
