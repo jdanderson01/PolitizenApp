@@ -4,75 +4,80 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   FlatList,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
-//initiaize variable to hold the local bill data array
-
-const localBillData = [
-  {
-    key: 1,
-    image: require("../assets/maricopa-flag.png"),
-    title: "P-03",
-    component: "P03",
-  },
-  {
-    key: 2,
-    image: require("../assets/maricopa-flag.png"),
-    title: "P-04",
-    component: "P04",
-  },
-  {
-    key: 3,
-    image: require("../assets/maricopa-flag.png"),
-    title: "P-05",
-    component: "P05",
-  },
-  {
-    key: 4,
-    image: require("../assets/maricopa-flag.png"),
-    title: "P-06",
-    component: "P06",
-  },
-  {
-    key: 5,
-    image: require("../assets/maricopa-flag.png"),
-    title: "P-07",
-    component: "P07",
-  },
-  {
-    key: 6,
-    image: require("../assets/maricopa-flag.png"),
-    title: "P-08",
-    component: "P08",
-  },
-];
+//legiscan key
+const API_KEY = "18c3b84f2e7b6ea9b7f13332187403e5";
 
 export default function LocalBillScreen() {
   const navigation = useNavigation();
-  const handlePress = (component) => {
-    navigation.navigate(component);
+
+  const [county, setCounty] = useState("");
+  const [bill, setBill] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleCountyChange = (text) => {
+    setCounty(text);
   };
+
+  const handleSearch = () => {
+    const url = `https://api.legiscan.com/?key=${API_KEY}&op=getMasterList&state=NY&query=${encodeURIComponent(
+      county
+    )}`;
+
+    axios
+      .get(url)
+      .then((response) => {
+        console.log(response.data);
+        const masterlist = response.data.masterlist;
+        setBill(Object.values(masterlist));
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handlePress = (billData) => {
+    navigation.navigate("BillDetailScreen", { billData });
+  };
+
+  const renderBillItem = ({ item }) => (
+    <TouchableOpacity style={styles.billItem} onPress={() => handlePress(item)}>
+      <Text style={styles.title}>Bill ID: {item.bill_id}</Text>
+      <Text style={styles.title}>Title: {item.title}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
-      <TopNav style={styles.topNav} />
-      <FlatList
-        numColumns={2}
-        data={localBillData}
-        renderItem={({ item }) => (
-          <View style={styles.imgContainer}>
-            <TouchableOpacity onPress={() => handlePress(item.component)}>
-              <Image source={item.image} style={styles.image} />
-              <Text style={styles.title}>{item.title}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+      <TopNav />
+      <View style={styles.searchBar}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Enter your county"
+          value={county}
+          onChangeText={handleCountyChange}
+        />
+        <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
+          <Text style={styles.searchButtonText}>Search</Text>
+        </TouchableOpacity>
+      </View>
+      {loading ? (
+        <Text>Loading ....</Text>
+      ) : (
+        <FlatList
+          data={bill}
+          renderItem={renderBillItem}
+          keyExtractor={(item) => item.bill_id}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -81,28 +86,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#dde4e5",
-    alignItems: "center",
   },
-
-  imageContainer: {
-    flex: 1,
+  searchBar: {
+    flexDirection: "row",
     alignItems: "center",
     margin: 10,
   },
-
-  image: {
-    height: 140,
-    width: 150,
-    margin: 20,
+  searchInput: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    marginRight: 10,
+    fontSize: 16,
   },
-
+  searchButton: {
+    padding: 10,
+    backgroundColor: "blue",
+    borderRadius: 10,
+  },
+  searchButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  billItem: {
+    padding: 10,
+    marginVertical: 5,
+    marginHorizontal: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "gray",
+  },
   title: {
-    marginTop: 2,
-    alignSelf: "center",
-  },
-
-  tinyLogo: {
-    height: 110,
-    width: 111,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });

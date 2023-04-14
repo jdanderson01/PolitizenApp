@@ -68,7 +68,7 @@ export default function CandidateScreen() {
         numColumns={2}
         data={candidates}
         renderItem={({ item }) => (
-          <View style={styles.imgContainer}>
+          <View style={styles.imageContainer}>
             <TouchableOpacity onPress={() => handlePress(item)}>
               <Image
                 source={{

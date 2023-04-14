@@ -47,7 +47,10 @@ export default function HomeScreen() {
             source={require("../assets/voters-abortion.jpeg")}
             style={styles.image2}
           />
-          <TouchableOpacity style={styles.greyRectangleTwo}>
+          <TouchableOpacity
+            style={styles.greyRectangleTwo}
+            onPress={() => handlePress("VotersKeepAbortion")}
+          >
             <Text style={styles.rectText}>
               States like Michigan, Kentucky, Montana, California, and Vermont
               generally saw voters vote in favor of abortion rights.

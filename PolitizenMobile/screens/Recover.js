@@ -14,7 +14,7 @@ export default function Recover(props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Recover</Text>
+      <Text style={styles.head}>Recover</Text>
       <TextInput
         style={styles.pInput}
         placeholder="Enter email"
@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
   tinyLogo: {
     height: 370,
     width: 371,
+  },
+
+  head: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 
   input: {

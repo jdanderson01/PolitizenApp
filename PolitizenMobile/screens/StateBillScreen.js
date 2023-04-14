@@ -61,7 +61,7 @@ export default function StateBillScreen() {
       <View style={styles.searchBar}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Enter State ex. FL"
+          placeholder="Enter your state Abbreviation"
           value={address}
           onChangeText={handleAddressChange}
         />
@@ -86,53 +86,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#dde4e5",
-    alignItems: "center",
-  },
-
-  title: {
-    marginTop: 2,
-    alignSelf: "center",
-  },
-
-  tinyLogo: {
-    height: 110,
-    width: 111,
-  },
-  title: {
-    marginTop: 2,
-    alignSelf: "center",
-  },
-
-  subtitle: {
-    marginTop: 2,
-    alignSelf: "center",
   },
   searchBar: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
+    margin: 10,
   },
-
   searchInput: {
     flex: 1,
     height: 40,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 4,
+    borderRadius: 10,
+    padding: 10,
     marginRight: 10,
-    paddingHorizontal: 10,
+    fontSize: 16,
   },
-
   searchButton: {
-    backgroundColor: "#007bff",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 4,
+    padding: 10,
+    backgroundColor: "blue",
+    borderRadius: 10,
   },
-
   searchButtonText: {
     color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  billItem: {
+    padding: 10,
+    marginVertical: 5,
+    marginHorizontal: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "gray",
+  },
+  title: {
+    fontSize: 16,
     fontWeight: "bold",
   },
 });
