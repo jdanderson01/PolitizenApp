@@ -16,7 +16,7 @@ export default function TopNav() {
       containerStyle={{
         width: "100%",
         height: "15%",
-        maxHeight: "200px",
+        maxHeight: "200",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#dde45",

@@ -16,6 +16,8 @@ export default function Login(props) {
   //username and password states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   //function to check if the correct username & password were put in.
   function checkAuth() {
@@ -25,6 +27,13 @@ export default function Login(props) {
         props.navigation.navigate("TabNavigator");
       })
       .catch((error) => {
+        if (error.code === "auth/wrong-password") {
+          setPasswordError("You entered the wrong password");
+          setEmailError("");
+        } else if (error.code === "auth/user-not-found") {
+          setEmailError("You entered the wrong email");
+          setPasswordError("");
+        }
         console.log(error.message);
       });
   }
@@ -38,18 +47,31 @@ export default function Login(props) {
         />
         <Text style={styles.signText}>Sign In</Text>
         <TextInput
-          style={styles.input}
+          style={[styles.input, { borderColor: emailError ? "red" : "#ccc" }]}
           placeholder="Enter E-Mail"
-          onChangeText={setEmail}
+          onChangeText={(text) => {
+            setEmail(text);
+            setEmailError("");
+          }}
           value={email}
           underlineColorAndroid="transparent"
         />
+        {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
         <TextInput
-          style={styles.pInput}
+          style={[
+            styles.pInput,
+            { borderColor: passwordError ? "red" : "#ccc" },
+          ]}
           placeholder="Enter Password"
-          onChangeText={setPassword}
+          onChangeText={(text) => {
+            setPassword(text);
+            setPasswordError("");
+          }}
           secureTextEntry={true}
         />
+        {passwordError ? (
+          <Text style={styles.error}>{passwordError}</Text>
+        ) : null}
         <Pressable
           style={styles.button}
           title="Submit"
@@ -83,7 +105,6 @@ export default function Login(props) {
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -148,5 +169,15 @@ const styles = StyleSheet.create({
 
   pressStyle: {
     textDecorationLine: "underline",
+  },
+
+  errorInput: {
+    borderColor: "red",
+  },
+
+  errorMsg: {
+    color: "red",
+    marginHorizontal: 12,
+    marginBottom: 8,
   },
 });

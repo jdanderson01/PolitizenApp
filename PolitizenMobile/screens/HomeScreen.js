@@ -20,7 +20,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />
-      <ScrollView style={styles.scrollVIew}>
+      <ScrollView style={styles.scrollView}>
         <Image
           style={styles.homeImg}
           source={require("../assets/dems-win-nevada.jpeg")}
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
   articleContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 10,
+    marginTop: 10,
   },
 
   headLogo: {
