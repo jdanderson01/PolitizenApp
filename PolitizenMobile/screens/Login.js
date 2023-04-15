@@ -50,7 +50,7 @@ export default function Login(props) {
         />
         <Text style={styles.signText}>Sign In</Text>
         <TextInput
-          style={[styles.input, { borderColor: emailError ? "red" : "#ccc" }]}
+          style={[styles.input, { borderColor: emailError ? "red" : "black" }]}
           placeholder="Enter E-Mail"
           onChangeText={(text) => {
             setEmail(text);
@@ -63,7 +63,7 @@ export default function Login(props) {
         <TextInput
           style={[
             styles.pInput,
-            { borderColor: passwordError ? "red" : "#ccc" },
+            { borderColor: passwordError ? "red" : "black" },
           ]}
           placeholder="Enter Password"
           onChangeText={(text) => {
@@ -165,9 +165,8 @@ const styles = StyleSheet.create({
   },
 
   regText: {
-    margin: 4,
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: 4,
+    textAlign: "center",
   },
 
   pressStyle: {
