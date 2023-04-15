@@ -28,11 +28,13 @@ export default function BillDetailScreen({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text>Bill ID: {billData.bill_id}</Text>
-      <Text>Title: {billData.title}</Text>
+      <Text style={styles.id}>Bill ID: {billData.bill_id}</Text>
+      <Text style={styles.title}>Title: {billData.title}</Text>
       {billDetails && (
         <View>
-          <Text>Description: {billDetails.description}</Text>
+          <Text style={styles.text}>
+            Description: {billDetails.description}
+          </Text>
         </View>
       )}
     </View>
@@ -45,5 +47,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#dde4e5",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  id: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+
+  text: {
+    fontSize: 20,
+    margin: 5,
   },
 });

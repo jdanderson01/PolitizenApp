@@ -98,26 +98,23 @@ const styles = StyleSheet.create({
 
   searchBar: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
+    margin: 10,
   },
-
   searchInput: {
     flex: 1,
     height: 40,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 4,
+    borderRadius: 10,
+    padding: 10,
     marginRight: 10,
-    paddingHorizontal: 10,
+    fontSize: 16,
   },
 
   searchButton: {
-    backgroundColor: "#007bff",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 4,
+    padding: 10,
+    backgroundColor: "blue",
+    borderRadius: 10,
   },
 
   searchButtonText: {

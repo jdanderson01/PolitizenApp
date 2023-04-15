@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   infoContainer: {
-    backgroundColor: "white",
     padding: 20,
     borderRadius: 20,
     alignItems: "center",
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
-    color: "#666",
+    color: "black",
   },
   office: {
     fontSize: 18,

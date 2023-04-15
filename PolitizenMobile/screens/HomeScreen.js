@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   image2: {
     height: 95,
     width: 95,
-    marginTop: 50,
+    marginTop: 10,
   },
 
   greyRectangleOne: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     width: 250,
     height: 95,
     borderRadius: 2,
-    marginTop: 50,
+    marginTop: 10,
     alignSelf: "center",
     alignContent: "center",
     backgroundColor: "#cccccc",
