@@ -1,7 +1,6 @@
 //import expo & react
 import "react-native-gesture-handler";
 import React from "react";
-import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -36,13 +35,7 @@ import SB1347 from "./screens/stateBillScreens/SB1347";
 import SB1511 from "./screens/stateBillScreens/SB1511";
 import BillDetailScreen from "./screens/billData";
 
-//import candidate screens
-import CharlieCrist from "./screens/candidatesScreen/CharlieCrist";
-import HerschelWalker from "./screens/candidatesScreen/HerschelWalker";
-import KariLake from "./screens/candidatesScreen/KariLake";
-import KatieHobbs from "./screens/candidatesScreen/KatieHobbs";
-import RaphaelWarnock from "./screens/candidatesScreen/RaphaelWarnock";
-import RonDeSantis from "./screens/candidatesScreen/RonDeSantis";
+//import candidate screen
 import CandidateInfoScreen from "./screens/candidatesScreen/CandidateInfoScreen";
 
 //article screens
@@ -138,12 +131,6 @@ export default function App() {
         <Stack.Screen name="Code" component={Code} initialParams={user} />
         <Stack.Screen name="Donate" component={Donate} />
         <Stack.Screen name="CandidateInfo" component={CandidateInfoScreen} />
-        <Stack.Screen name="CharlieCrist" component={CharlieCrist} />
-        <Stack.Screen name="HerschelWalker" component={HerschelWalker} />
-        <Stack.Screen name="KariLake" component={KariLake} />
-        <Stack.Screen name="KatieHobbs" component={KatieHobbs} />
-        <Stack.Screen name="RaphaelWarnock" component={RaphaelWarnock} />
-        <Stack.Screen name="RonDeSantis" component={RonDeSantis} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Notifications" component={Notifications} />
         <Stack.Screen name="Privacy" component={Privacy} />

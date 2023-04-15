@@ -33,6 +33,9 @@ export default function Login(props) {
         } else if (error.code === "auth/user-not-found") {
           setEmailError("You entered the wrong email");
           setPasswordError("");
+        } else if (error.code === "auth/invalid-email") {
+          setEmailError("You entered the wrong email");
+          setPasswordError("");
         }
         console.log(error.message);
       });

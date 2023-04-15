@@ -1,36 +1,48 @@
-import "react-native-gesture-handler";
 import React, { useState } from "react";
-import {
-  SafeAreaView,
-  TextInput,
-  StyleSheet,
-  Image,
-  Pressable,
-} from "react-native";
+import { SafeAreaView, TextInput, StyleSheet, Pressable } from "react-native";
 import { Text } from "react-native-elements";
+import { auth } from "../Firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
 
-export default function Recover(props) {
+export default function Recover() {
   const [email, setEmail] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleResetPassword = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setEmailSent(true);
+        setError("");
+      })
+      .catch((error) => {
+        setEmailSent(false);
+        setError(error.message);
+      });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.head}>Recover</Text>
+      <Text h3 style={styles.title}>
+        Reset Password
+      </Text>
       <TextInput
-        style={styles.pInput}
-        placeholder="Enter email"
-        onChangeText={(text) => setEmail(text)}
+        style={styles.input}
+        placeholder="Email Address"
+        placeholderTextColor="#b2b2b2"
+        keyboardType="email-address"
+        autoCapitalize="none"
+        autoCorrect={false}
         value={email}
-        underlineColorAndroid="transparent"
+        onChangeText={setEmail}
       />
-      <Pressable
-        style={styles.subButton}
-        title="Submit"
-        onPress={() => {
-          props.navigation.navigate("Code");
-        }}
-      >
-        <Text style={styles.pText}>Send</Text>
+      <Pressable style={styles.button} onPress={handleResetPassword}>
+        <Text style={styles.buttonText}>Reset Password</Text>
       </Pressable>
+      {error !== "" && <Text style={styles.error}>{error}</Text>}
+      {emailSent && (
+        <Text style={styles.success}>Password reset email sent to {email}</Text>
+      )}
     </SafeAreaView>
   );
 }
@@ -42,27 +54,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  tinyLogo: {
-    height: 370,
-    width: 371,
+  title: {
+    marginBottom: 50,
   },
-
-  head: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-
   input: {
-    height: 40,
-    margin: 12,
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderRadius: 12,
-    padding: 10,
-  },
-
-  pInput: {
     height: 40,
     width: 300,
     margin: 12,
@@ -71,8 +66,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 10,
   },
-
-  subButton: {
+  button: {
     backgroundColor: "#62787f",
     height: 65,
     width: 300,
@@ -81,21 +75,18 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
   },
-
-  pText: {
+  buttonText: {
     color: "#fff",
     textAlign: "center",
     fontSize: 20,
     padding: 10,
   },
-
-  regText: {
-    margin: 8,
-    alignItems: "center",
-    justifyContent: "center",
+  error: {
+    color: "#b71c1c",
+    marginTop: 10,
   },
-
-  pressStyle: {
-    textDecorationLine: "underline",
+  success: {
+    color: "#388e3c",
+    marginTop: 10,
   },
 });
