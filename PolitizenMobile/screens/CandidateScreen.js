@@ -56,7 +56,7 @@ export default function CandidateScreen() {
       <View style={styles.searchBar}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Enter your address"
+          placeholder="Enter state abbreviation"
           value={address}
           onChangeText={handleAddressChange}
         />
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
 
   searchButton: {
     padding: 10,
-    backgroundColor: "blue",
+    backgroundColor: "#08314f",
     borderRadius: 10,
   },
 

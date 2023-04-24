@@ -7,32 +7,17 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "react-native-vector-icons";
 
 //import screens
-import Splash from "./screens/Splash";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
 import Recover from "./screens/Recover";
 import Code from "./screens/VerificationCode";
-import HomeScreen from "./screens/HomeScreen";
+import Home from "./screens/Home";
 import BillScreen from "./screens/BillScreen";
 import ArticleScreen from "./screens/ArticleScreen";
 import CandidateScreen from "./screens/CandidateScreen";
 import Donate from "./screens/Donate";
 
 //Bill Screens
-import LocalBillScreen from "./screens/LocalBillScreen";
-import P03 from "./screens/localBillScreens/P03";
-import P04 from "./screens/localBillScreens/P04";
-import P05 from "./screens/localBillScreens/P05";
-import P06 from "./screens/localBillScreens/P06";
-import P07 from "./screens/localBillScreens/P07";
-import P08 from "./screens/localBillScreens/P08";
-import StateBillScreen from "./screens/StateBillScreen";
-import SB1035 from "./screens/stateBillScreens/SB1035";
-import SB1042 from "./screens/stateBillScreens/SB1042";
-import SB1046 from "./screens/stateBillScreens/SB1046";
-import SB1339 from "./screens/stateBillScreens/SB1339";
-import SB1347 from "./screens/stateBillScreens/SB1347";
-import SB1511 from "./screens/stateBillScreens/SB1511";
 import BillDetailScreen from "./screens/billData";
 
 //import candidate screen
@@ -73,8 +58,8 @@ function TabNavigator() {
       }}
     >
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="Home"
+        component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
@@ -136,21 +121,7 @@ export default function App() {
         <Stack.Screen name="Privacy" component={Privacy} />
         <Stack.Screen name="Location" component={Location} />
         <Stack.Screen name="TabNavigator" component={TabNavigator} />
-        <Stack.Screen name="LocalBillScreen" component={LocalBillScreen} />
-        <Stack.Screen name="StateBillScreen" component={StateBillScreen} />
         <Stack.Screen name="BillDetailScreen" component={BillDetailScreen} />
-        <Stack.Screen name="SB1035" component={SB1035} />
-        <Stack.Screen name="SB1042" component={SB1042} />
-        <Stack.Screen name="SB1046" component={SB1046} />
-        <Stack.Screen name="SB1339" component={SB1339} />
-        <Stack.Screen name="SB1347" component={SB1347} />
-        <Stack.Screen name="SB1511" component={SB1511} />
-        <Stack.Screen name="P03" component={P03} />
-        <Stack.Screen name="P04" component={P04} />
-        <Stack.Screen name="P05" component={P05} />
-        <Stack.Screen name="P06" component={P06} />
-        <Stack.Screen name="P07" component={P07} />
-        <Stack.Screen name="P08" component={P08} />
         <Stack.Screen name="DemsWinNV" component={DemsWinNV} />
         <Stack.Screen name="HobbsBeatsLake" component={HobbsBeatsLake} />
         <Stack.Screen

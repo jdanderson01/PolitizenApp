@@ -11,7 +11,7 @@ import {
 import TopNav from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
-export default function HomeScreen() {
+export default function Home() {
   const navigation = useNavigation();
   const handlePress = (component) => {
     navigation.navigate(component);

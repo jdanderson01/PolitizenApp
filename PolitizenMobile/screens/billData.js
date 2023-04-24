@@ -22,6 +22,12 @@ export default function BillDetailScreen({ route }) {
       });
   }, [billData]);
 
+  const handlePress = () => {
+    if (billDetails && billDetails.bill_url) {
+      Linking.openURL(billDetails.bill_url);
+    }
+  };
+
   if (loading) {
     return <Text>Loading...</Text>;
   }
@@ -35,6 +41,7 @@ export default function BillDetailScreen({ route }) {
           <Text style={styles.text}>
             Description: {billDetails.description}
           </Text>
+          <Text style={styles.text}>URL: {billDetails.url}</Text>
         </View>
       )}
     </View>

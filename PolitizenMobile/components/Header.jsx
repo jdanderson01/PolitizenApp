@@ -32,7 +32,7 @@ export default function TopNav() {
         </TouchableOpacity>
       }
       centerComponent={
-        <TouchableOpacity onPress={() => handlePress("HomeScreen")}>
+        <TouchableOpacity onPress={() => handlePress("Home")}>
           <Image
             style={styles.headLogo}
             source={require("../assets/politizen-logo.png")}
